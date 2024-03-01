@@ -17,18 +17,77 @@ class _loginpagestate extends State<Loginpage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Page'),
-        backgroundColor: const Color.fromARGB(255, 49, 75, 62),
-          leading: IconButton(
-            icon: const Icon(Icons.menu),
-            tooltip: 'Menu',
-            onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => const menubar()),
-                // );
+        title: const Text(
+          'Login Page',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Color.fromARGB(255, 29, 73, 51),
+        actions: <Widget>[
+          PopupMenuButton<String>(
+              onSelected: (String result) {
+                print(result);
+                if (result == 'Home') {
+                  //do somthing here for your home page
+                } else if (result == 'Contact') {
+                  //do somthing here for your Contact page
+                } else if (result == 'About') {
+                  //do somthing here for your About page
+                }
               },
-          ),
+              icon: const Icon(Icons.menu),
+              itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
+                    const PopupMenuItem<String>(
+                      value: 'Home',
+                      child: Text(
+                        'Home',
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Color.fromARGB(255, 58, 55, 47),
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    const PopupMenuDivider(),
+                    const PopupMenuItem<String>(
+                      value: 'Contact',
+                      child: Text(
+                        'Contact',
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Color.fromARGB(255, 90, 70, 11),
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    const PopupMenuDivider(),
+                    const PopupMenuItem<String>(
+                      value: 'About',
+                      child: Row(
+                        children: [
+                          Icon(Icons.contact_emergency),
+                          SizedBox(height: 8),
+                          Text(
+                            "About",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: Color.fromARGB(255, 90, 70, 11),
+                                fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                    ),
+                    // PopupMenuDivider(),
+                    // PopupMenuItem<String>(
+                    //   value: 'try',
+                    //   child: Container(
+                    //     padding: EdgeInsets.all(8),
+                    //     decoration: BoxDecoration(
+                    //       color: const Color.fromARGB(255, 172, 151, 151),
+                    //       borderRadius: BorderRadius.circular(8),
+                    //     ),
+                    //     child: Text('try'),
+                    //   ),
+                    // ),
+                  ])
+        ],
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -84,31 +143,46 @@ class _loginpagestate extends State<Loginpage> {
             const SizedBox(
               height: 16,
             ),
-           
-            TextButton(
-              style: TextButton.styleFrom(
-               
-                backgroundColor: Colors.blue,
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Color.fromARGB(255, 9, 28, 44),
                 textStyle: const TextStyle(fontSize: 16),
-                padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 20.0, vertical: 10.0),
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+                  borderRadius: BorderRadius.circular(15.0),
                 ),
               ),
               onPressed: () {
                 //loging here
               },
-              child: const Text('Login'),
+              child: const Text(
+                'Login',
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
             ),
             const SizedBox(height: 16),
-            TextButton(
+            ElevatedButton(
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const create_account()),
+                  MaterialPageRoute(
+                      builder: (context) => const create_account()),
                 );
               },
-              child: const Text('Create Acount'),
+              child: const Text('Create Acount', style:
+                    TextStyle(color: Color.fromARGB(255, 27, 4, 4), fontWeight: FontWeight.bold),),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) =>  different_ui()),
+                // );
+              },
+              child: const Text('Go to UI traing', style:
+                    TextStyle(color: Color.fromARGB(255, 63, 11, 11), fontWeight: FontWeight.bold,fontSize: 17,),),
             ),
           ],
         ),

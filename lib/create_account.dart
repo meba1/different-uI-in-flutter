@@ -1,6 +1,7 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
+
 
 class create_account extends StatefulWidget {
   const create_account({super.key});
@@ -18,22 +19,27 @@ class _create_account extends State<create_account> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Create Account Page'),
-        backgroundColor: Color.fromARGB(255, 194, 207, 201),
+        title: const Text(
+          'Create Account Page',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Color.fromARGB(255, 24, 58, 42),
         actions: <Widget>[
           PopupMenuButton<String>(
               onSelected: (String result) {
                 print(result);
-                //if();
+                if (result == 'Home') {
+                  //do somthing here for your home page
+                } else if (result == 'Contact') {
+                  //do somthing here for your Contact page
+                } else if (result == 'About') {
+                  //do somthing here for your About page
+                }
               },
               icon: const Icon(Icons.menu),
               itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
                     const PopupMenuItem<String>(
                       value: 'Home',
-                      // child: Container(
-                      //   padding: EdgeInsets.all(8),
-                      //   decoration: BoxDecoration(color: Color.fromARGB(255, 100, 80, 19),
-                      //   borderRadius: BorderRadius.circular(8),),
                       child: Text(
                         'Home',
                         style: TextStyle(
@@ -52,7 +58,6 @@ class _create_account extends State<create_account> {
                             color: Color.fromARGB(255, 90, 70, 11),
                             fontWeight: FontWeight.bold),
                       ),
-                      
                     ),
                     const PopupMenuDivider(),
                     const PopupMenuItem<String>(
@@ -177,6 +182,15 @@ class _create_account extends State<create_account> {
                 //loging here
               },
               child: const Text('Create Acount'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                //  Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) =>  different_ui()),
+                // );
+              },
+              child: const Text('Go to UI traing'),
             ),
           ],
         ),
