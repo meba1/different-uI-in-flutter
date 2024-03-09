@@ -23,7 +23,7 @@ class _create_account extends State<create_account> {
           'Create Account Page',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Color.fromARGB(255, 24, 58, 42),
+        backgroundColor: const Color.fromARGB(255, 24, 58, 42),
         actions: <Widget>[
           PopupMenuButton<String>(
               onSelected: (String result) {

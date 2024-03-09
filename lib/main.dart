@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tesring/login.dart';
+import 'package:tesring/search_value.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 32, 13, 65)),
         useMaterial3: true,
       ),
-      home:  const Loginpage(),
+      home:   scanned_result(),
     );
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tesring/create_account.dart';
-
-
+import 'package:tesring/scan_code_page.dart';
 class Loginpage extends StatefulWidget {
   const Loginpage({super.key});
 
@@ -21,7 +20,7 @@ class _loginpagestate extends State<Loginpage> {
           'Login Page',
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Color.fromARGB(255, 29, 73, 51),
+        backgroundColor: const Color.fromARGB(255, 29, 73, 51),
         actions: <Widget>[
           PopupMenuButton<String>(
               onSelected: (String result) {
@@ -145,7 +144,7 @@ class _loginpagestate extends State<Loginpage> {
             ),
             ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color.fromARGB(255, 9, 28, 44),
+                backgroundColor: const Color.fromARGB(255, 9, 28, 44),
                 textStyle: const TextStyle(fontSize: 16),
                 padding: const EdgeInsets.symmetric(
                     horizontal: 20.0, vertical: 10.0),
@@ -174,14 +173,16 @@ class _loginpagestate extends State<Loginpage> {
               child: const Text('Create Acount', style:
                     TextStyle(color: Color.fromARGB(255, 27, 4, 4), fontWeight: FontWeight.bold),),
             ),
+             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) =>  different_ui()),
-                // );
+               Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const QRcodeScanner()),
+                );
               },
-              child: const Text('Go to UI traing', style:
+              child: const Text('Go to scan QR code', style:
                     TextStyle(color: Color.fromARGB(255, 63, 11, 11), fontWeight: FontWeight.bold,fontSize: 17,),),
             ),
           ],

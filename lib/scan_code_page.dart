@@ -30,7 +30,11 @@ class _ScanCodePage extends State<QRcodeScanner> {
           )
         ],
       ),
-      body: MobileScanner(
+      body: SafeArea(
+        child: Column(
+          children: <Widget>[
+            Container(height: MediaQuery.of(context).size.height*0.6,
+              child: MobileScanner(
           controller: MobileScannerController(
               detectionSpeed: DetectionSpeed.normal, returnImage: true),
           onDetect: (capture) {
@@ -53,7 +57,17 @@ class _ScanCodePage extends State<QRcodeScanner> {
                     );
                   });
             }
-          }),
+          }
+          ),
+            ),
+            Container(child: Container(
+              color: Colors.blue,
+            ),
+            ),
+          ],
+        )
+      ),
+      
     ));
   }
 }

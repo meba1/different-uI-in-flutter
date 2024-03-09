@@ -1,5 +1,6 @@
 import "package:flutter/material.dart";
 import "package:pretty_qr_code/pretty_qr_code.dart";
+import 'package:tesring/scan_code_page.dart';
 
 class QRCodeGenerator extends StatefulWidget {
   const QRCodeGenerator({super.key});
@@ -21,7 +22,11 @@ class _GenerateCodePage extends State<QRCodeGenerator> {
         actions: [
           IconButton(
             onPressed: () {
-              //do navigation to generate code
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const QRcodeScanner()),
+                );
             },
             icon: const Icon(Icons.qr_code_scanner),
           )
